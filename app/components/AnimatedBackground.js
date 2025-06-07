@@ -17,34 +17,30 @@ const AnimatedBackground = () => {
     const getResponsiveConfig = () => {
       const isMobile = width < 768;
       const isTablet = width >= 768 && width < 1024;
-      const isSmallWindow = width < 1200 && height < 800;
       
       if (isMobile) {
         return {
-          dotCount: 12,           // Much fewer dots on mobile (reduced from 25)
-          connectionDistance: 60, // Even shorter connection distance (reduced from 80)
-          speed: 0.2,             // Even slower animation (reduced from 0.3)
-          dotOpacity: 0.4,        // Lower opacity for subtlety (reduced from 0.6)
-          lineWidth: 0.3,         // Much thinner lines (reduced from 0.5)
-          maxConnections: 2       // Limit connections per dot
+          dotCount: 25,           // Much fewer dots on mobile
+          connectionDistance: 80,  // Shorter connection distance
+          speed: 0.3,             // Slower animation
+          dotOpacity: 0.6,        // Slightly more visible dots
+          lineWidth: 0.5          // Thinner lines
         };
-      } else if (isTablet || isSmallWindow) {
+      } else if (isTablet) {
         return {
-          dotCount: 30,           // Fewer dots for tablets/small windows (reduced from 45)
-          connectionDistance: 80, // Shorter connections (reduced from 100)
-          speed: 0.3,             // Slower speed (reduced from 0.4)
-          dotOpacity: 0.4,        // Lower opacity
-          lineWidth: 0.4,         // Thinner lines (reduced from 0.6)
-          maxConnections: 3       // Limit connections per dot
+          dotCount: 45,           // Medium number for tablets
+          connectionDistance: 100,
+          speed: 0.4,
+          dotOpacity: 0.5,
+          lineWidth: 0.6
         };
       } else {
         return {
-          dotCount: 60,           // Reduced even for desktop (from 80)
-          connectionDistance: 120, // Slightly shorter (from 150)
-          speed: 0.4,             // Slightly slower (from 0.5)
+          dotCount: 80,           // Full density for desktop
+          connectionDistance: 150,
+          speed: 0.5,
           dotOpacity: 0.5,
-          lineWidth: 0.6,         // Thinner lines (from 0.8)
-          maxConnections: 4       // Limit connections per dot
+          lineWidth: 0.8
         };
       }
     };
@@ -108,10 +104,7 @@ const AnimatedBackground = () => {
 
     const connect = () => {
       for (let i = 0; i < dots.length; i++) {
-        let connectionCount = 0;
-        for (let j = i + 1; j < dots.length; j++) {
-          if (connectionCount >= config.maxConnections) break;
-          
+        for (let j = i; j < dots.length; j++) {
           const distance = Math.sqrt(
             Math.pow(dots[i].x - dots[j].x, 2) + Math.pow(dots[i].y - dots[j].y, 2)
           );
@@ -119,10 +112,9 @@ const AnimatedBackground = () => {
             ctx.beginPath();
             ctx.moveTo(dots[i].x, dots[i].y);
             ctx.lineTo(dots[j].x, dots[j].y);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / config.connectionDistance) * 0.6})`;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / config.connectionDistance) * 0.8})`;
             ctx.lineWidth = config.lineWidth;
             ctx.stroke();
-            connectionCount++;
           }
         }
       }

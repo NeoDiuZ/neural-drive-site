@@ -28,7 +28,7 @@ export default function Home() {
       </main>
 
       {/* Executive Summary Sections */}
-      <main className="relative z-10 max-content w-full mt-[-6rem] mb-16">
+      <main className="relative z-10 max-content mt-[-6rem] mb-16">
         
         {/* Problem & Solution - Split Layout */}
         <div className="split-section">
