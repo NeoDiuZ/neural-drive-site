@@ -8,26 +8,11 @@
   --text-secondary: #B0B0B0;
   --accent: #00E5FF;
   --accent-dark: #00B8CC;
-  --surface-1: rgba(255, 255, 255, 0.03);
-  --surface-2: rgba(255, 255, 255, 0.07);
-  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 body {
   background-color: var(--background-dark);
   color: var(--text-primary);
-}
-
-@layer base {
-  .bg-surface-1 {
-    background-color: var(--surface-1);
-  }
-  .bg-surface-2 {
-    background-color: var(--surface-2);
-  }
-  .border-surface {
-    border-color: var(--border-color);
-  }
 }
 
 @layer utilities {
