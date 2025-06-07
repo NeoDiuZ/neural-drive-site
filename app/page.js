@@ -28,9 +28,9 @@ const SectionTitle = ({ children, align = "center" }) => (
 );
 
 const FeatureColumn = ({ icon, title, text }) => (
-    <div className="flex flex-col items-center text-center">
-        <div className="text-cyan-400 mb-4">{icon}</div>
-        <h3 className="text-2xl font-bold mb-2">{title}</h3>
+    <div className="flex flex-col items-center text-center gap-2">
+        <div className="mb-4 text-white">{icon}</div>
+        <h3 className="text-2xl font-semibold">{title}</h3>
         <p className="text-[var(--text-secondary)] text-balance max-w-xs">{text}</p>
     </div>
 )
@@ -46,10 +46,10 @@ const teamMembers = [
 const TeamMemberCard = ({ name, title, bio, imgSrc }) => (
   <motion.div className="text-center flex flex-col items-center group" whileHover={{scale:1.05}}>
     <div className="relative w-40 h-40 mb-4">
-        <Image src={imgSrc} alt={name} width={160} height={160} className="rounded-full object-cover z-10" />
-        <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-xl group-hover:blur-2xl transition-all duration-300"/>
+        <Image src={imgSrc} alt={name} width={160} height={160} className="rounded-full object-cover grayscale z-10" />
+        <div className="absolute inset-0 rounded-full bg-white/10 blur-xl group-hover:blur-2xl transition-all duration-300"/>
     </div>
-    <h3 className="text-xl font-bold text-cyan-400">{name}</h3>
+    <h3 className="text-xl font-bold">{name}</h3>
     <p className="text-[var(--text-secondary)]">{title}</p>
     <p className="text-sm text-gray-500 mt-2 max-w-xs">{bio}</p>
   </motion.div>
@@ -78,29 +78,29 @@ export default function Home() {
           </motion.div>
         </header>
 
-        <Section>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+        <Section className="bg-white/5">
+          <div className="md:flex items-center gap-16">
+            <div className="md:w-1/2 space-y-6">
               <SectionTitle align="left">Why We Started</SectionTitle>
-              <p className="text-xl sm:text-2xl lg:text-3xl text-white font-light leading-relaxed">
-                Our mission is to empower the <span className="font-semibold text-cyan-400">1 in 50 people</span> worldwide who live with muscular degenerative disorders and other motor impairments.
+              <p className="text-xl sm:text-2xl leading-relaxed">
+                Our mission is to empower the <span className="font-semibold">1 in 50 people</span> worldwide who live with muscular degenerative disorders and other motor impairments.
               </p>
             </div>
-            <div className="flex justify-center">
-              <Image src="/globe.svg" alt="Globe" width={350} height={350} className="w-3/4 h-auto" />
+            <div className="md:w-1/2 flex justify-center">
+              <Image src="/globe.svg" alt="Globe" width={350} height={350} className="w-3/4 h-auto grayscale" />
             </div>
           </div>
         </Section>
         
-        <Section>
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
+        <Section className="bg-white/5">
+          <div className="md:flex items-start gap-16">
+            <div className="md:w-1/3 space-y-4">
               <SectionTitle align="left">The Problem</SectionTitle>
-              <p className="text-lg text-[var(--text-secondary)] max-w-md">
+              <p className="text-lg text-[var(--text-secondary)]">
                 Current assistive technologies are expensive and hard to use, leaving many without a viable solution.
               </p>
             </div>
-            <div className="grid sm:grid-cols-2 gap-12">
+            <div className="md:w-2/3 grid sm:grid-cols-2 gap-12">
               <FeatureColumn
                 icon={<FiUser size={36} />}
                 title="A World of Constraints"
@@ -115,9 +115,10 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="grid sm:grid-cols-3 gap-8 order-2 md:order-1">
+        <Section className="bg-white/5">
+          <SectionTitle>The Solution</SectionTitle>
+          <div className="md:flex items-center gap-16">
+            <div className="md:w-1/2 order-2 md:order-1 grid sm:grid-cols-3 gap-8">
               <FeatureColumn
                 icon={<FiCpu size={36} />}
                 title="Accessible Hardware"
@@ -134,8 +135,8 @@ export default function Home() {
                 text="Hardware and software working in seamless harmony."
               />
             </div>
-            <div className="flex justify-center order-1 md:order-2">
-              <Image src="/window.svg" alt="Window" width={350} height={350} className="w-3/4 h-auto" />
+            <div className="md:w-1/2 flex justify-center order-1 md:order-2">
+              <Image src="/window.svg" alt="Window" width={350} height={350} className="w-3/4 h-auto grayscale" />
             </div>
           </div>
         </Section>
@@ -144,22 +145,22 @@ export default function Home() {
           <SectionTitle>MVP & Traction</SectionTitle>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 text-center border-y border-white/10 py-12">
             <div>
-                <FiActivity size={36} className="mx-auto mb-3 text-cyan-400"/>
+                <FiActivity size={36} className="mx-auto mb-3"/>
                 <p className="text-4xl font-bold">5 Months</p>
                 <p className="text-lg text-[var(--text-secondary)]">to MVP</p>
             </div>
             <div>
-                <FiDollarSign size={36} className="mx-auto mb-3 text-cyan-400"/>
+                <FiDollarSign size={36} className="mx-auto mb-3"/>
                 <p className="text-4xl font-bold">$19,000</p>
                 <p className="text-lg text-[var(--text-secondary)]">Pre-Seed Funding</p>
             </div>
             <div>
-                <FiUsers size={36} className="mx-auto mb-3 text-cyan-400"/>
+                <FiUsers size={36} className="mx-auto mb-3"/>
                 <p className="text-4xl font-bold">14</p>
                 <p className="text-lg text-[var(--text-secondary)]">Early Access Users</p>
             </div>
             <div>
-                <FiAward size={36} className="mx-auto mb-3 text-cyan-400"/>
+                <FiAward size={36} className="mx-auto mb-3"/>
                 <p className="text-4xl font-bold">In Process</p>
                 <p className="text-lg text-[var(--text-secondary)]">Provisional IP</p>
             </div>
@@ -178,12 +179,12 @@ export default function Home() {
           <SectionTitle>Global Market Opportunity</SectionTitle>
           <div className="space-y-12 text-center">
             <div>
-                <p className="text-6xl font-bold text-blue-400">$75B</p>
+                <p className="text-6xl font-bold">$75B</p>
                 <p className="text-2xl font-semibold mt-2">Total Addressable Market (TAM)</p>
                 <p className="text-lg text-[var(--text-secondary)] max-w-md mx-auto">The vast and growing global market for Brain-Computer Interface technology.</p>
             </div>
             <div>
-                <p className="text-6xl font-bold text-teal-400">$900M</p>
+                <p className="text-6xl font-bold">$900M</p>
                 <p className="text-2xl font-semibold mt-2">Serviceable Available Market (SAM)</p>
                 <p className="text-lg text-[var(--text-secondary)] max-w-md mx-auto">The segment of the BCI market that our technology and business model can effectively serve.</p>
             </div>
@@ -206,11 +207,11 @@ export default function Home() {
                 { phase: "Scale Phase", date: "'28-'29", desc: "Enterprise Solutions", icon: <FiBriefcase size={32} /> }
               ].map(item => (
                 <div key={item.phase} className="flex flex-col items-center text-center">
-                  <div className="bg-background-dark border border-white/10 text-cyan-400 rounded-full p-5 z-10">
+                  <div className="bg-background-dark border border-white/10 rounded-full p-5 z-10">
                     {item.icon}
                   </div>
                   <h3 className="text-3xl font-bold mt-4">{item.phase}</h3>
-                  <p className="text-cyan-400 font-semibold text-xl">{item.date}</p>
+                  <p className="font-semibold text-xl">{item.date}</p>
                   <p className="text-lg text-[var(--text-secondary)]">{item.desc}</p>
                 </div>
               ))}
