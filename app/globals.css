@@ -1,26 +1,50 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background-dark: #0A0A0A;
+  --text-primary: #EAEAEA;
+  --text-secondary: #B0B0B0;
+  --accent: #00E5FF;
+  --accent-dark: #00B8CC;
+  --surface-1: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.07);
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+}
+
+@layer utilities {
+  @keyframes pulse-slow {
+    50% {
+      transform: scale(1.02);
+      opacity: 0.5;
+    }
+  }
+  @keyframes pulse-medium {
+    50% {
+      transform: scale(1.05);
+      opacity: 0.5;
+    }
+  }
+  @keyframes pulse-fast {
+    50% {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .animate-pulse-medium {
+    animation: pulse-medium 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .animate-pulse-fast {
+    animation: pulse-fast 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 }
