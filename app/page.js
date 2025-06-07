@@ -78,7 +78,7 @@ export default function Home() {
           </motion.div>
         </header>
 
-        <Section>
+        <Section className="bg-surface-1 rounded-xl">
           <SectionTitle>Why We Started</SectionTitle>
           <div className="text-center">
             <p className="text-2xl sm:text-3xl lg:text-4xl text-white font-light leading-tight max-w-4xl mx-auto">
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
         </Section>
         
-        <Section>
+        <Section className="bg-surface-2 rounded-xl">
           <SectionTitle>The Problem</SectionTitle>
           <div className="grid md:grid-cols-2 gap-12">
             <FeatureColumn 
@@ -103,7 +103,7 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section>
+        <Section className="bg-surface-1 rounded-xl">
           <SectionTitle>The Solution</SectionTitle>
           <div className="grid md:grid-cols-3 gap-12">
             <FeatureColumn
@@ -124,7 +124,7 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section>
+        <Section className="bg-surface-2 rounded-xl">
           <SectionTitle>MVP & Traction</SectionTitle>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 text-center border-y border-white/10 py-12">
             <div>
@@ -158,7 +158,7 @@ export default function Home() {
           </div>
         </Section>
         
-        <Section className="max-w-5xl">
+        <Section className="max-w-5xl bg-surface-1 rounded-xl">
           <SectionTitle>Global Market Opportunity</SectionTitle>
           <div className="space-y-12 text-center">
             <div>
@@ -179,7 +179,7 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section className="max-w-sm">
+        <Section className="max-w-sm bg-surface-2 rounded-xl">
           <SectionTitle>Strategy & Distribution</SectionTitle>
           <div className="relative">
             <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-white/10" />
@@ -202,12 +202,20 @@ export default function Home() {
           </div>
         </Section>
         
-        <Section className="max-w-7xl">
+        <Section className="max-w-7xl bg-surface-1 rounded-xl">
             <SectionTitle>Team & Ask</SectionTitle>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-12 gap-x-8 mb-24">
                 {teamMembers.map(member => <TeamMemberCard key={member.name} {...member} />)}
             </div>
-          </Section>
+        </Section>
+
+        <Section className="bg-gradient-to-r from-cyan-500 to-blue-500 text-black rounded-xl">
+          <div className="text-center py-16 px-6">
+            <h3 className="text-3xl font-bold mb-4">Join the Neural Drive Community</h3>
+            <p className="mb-6 text-lg">Be the first to access our upcoming developer kit.</p>
+            <button className="px-6 py-3 font-semibold rounded bg-black/80 text-white hover:bg-black">Join Waitlist</button>
+          </div>
+        </Section>
 
       </main>
 

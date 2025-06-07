@@ -18,6 +18,18 @@ body {
   color: var(--text-primary);
 }
 
+@layer base {
+  .bg-surface-1 {
+    background-color: var(--surface-1);
+  }
+  .bg-surface-2 {
+    background-color: var(--surface-2);
+  }
+  .border-surface {
+    border-color: var(--border-color);
+  }
+}
+
 @layer utilities {
   @keyframes pulse-slow {
     50% {
