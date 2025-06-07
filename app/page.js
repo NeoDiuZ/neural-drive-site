@@ -21,8 +21,8 @@ const Section = ({ children, className, ...props }) => (
   </motion.section>
 );
 
-const SectionTitle = ({ children }) => (
-  <div className="text-center mb-16">
+const SectionTitle = ({ children, align = "center" }) => (
+  <div className={`mb-16 ${align === "left" ? "text-left" : "text-center"}`}>
     <h2 className="text-3xl sm:text-4xl font-semibold tracking-widest text-[var(--text-secondary)] uppercase">{children}</h2>
   </div>
 );
@@ -60,7 +60,7 @@ export default function Home() {
     <div className="relative overflow-hidden">
       <AnimatedBackground />
       <div className="fixed inset-0 bg-black/70 z-0" />
-      <main className="relative z-10 flex flex-col items-center">
+      <main className="relative z-10 flex flex-col items-stretch">
         
         <header className="w-full h-screen min-h-[700px] flex flex-col justify-center items-center text-center px-6">
           <motion.div 
@@ -79,48 +79,64 @@ export default function Home() {
         </header>
 
         <Section>
-          <SectionTitle>Why We Started</SectionTitle>
-          <div className="text-center">
-            <p className="text-2xl sm:text-3xl lg:text-4xl text-white font-light leading-tight max-w-4xl mx-auto">
-             Our mission is to empower the <span className="font-semibold text-cyan-400">1 in 50 people</span> worldwide who live with muscular degenerative disorders and other motor impairments.
-            </p>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <SectionTitle align="left">Why We Started</SectionTitle>
+              <p className="text-xl sm:text-2xl lg:text-3xl text-white font-light leading-relaxed">
+                Our mission is to empower the <span className="font-semibold text-cyan-400">1 in 50 people</span> worldwide who live with muscular degenerative disorders and other motor impairments.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <Image src="/globe.svg" alt="Globe" width={350} height={350} className="w-3/4 h-auto" />
+            </div>
           </div>
         </Section>
         
         <Section>
-          <SectionTitle>The Problem</SectionTitle>
-          <div className="grid md:grid-cols-2 gap-12">
-            <FeatureColumn 
-              icon={<FiUser size={36} />}
-              title="A World of Constraints"
-              text="For individuals with motor impairments, the digital world remains largely inaccessible. Physical limitations and technological barriers create a frustrating and isolating experience."
-            />
-            <FeatureColumn 
-              icon={<FiCode size={36} />}
-              title="A Labyrinth of Complexity"
-              text="The BCI landscape is a labyrinth of complexity. High barriers to entry and resource-intensive development cycles stifle the innovation needed to create life-changing solutions."
-            />
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div>
+              <SectionTitle align="left">The Problem</SectionTitle>
+              <p className="text-lg text-[var(--text-secondary)] max-w-md">
+                Current assistive technologies are expensive and hard to use, leaving many without a viable solution.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-12">
+              <FeatureColumn
+                icon={<FiUser size={36} />}
+                title="A World of Constraints"
+                text="For individuals with motor impairments, the digital world remains largely inaccessible. Physical limitations create a frustrating and isolating experience."
+              />
+              <FeatureColumn
+                icon={<FiCode size={36} />}
+                title="Complex Development"
+                text="BCI development today demands deep expertise and time—resources that hinder rapid innovation."
+              />
+            </div>
           </div>
         </Section>
 
         <Section>
-          <SectionTitle>The Solution</SectionTitle>
-          <div className="grid md:grid-cols-3 gap-12">
-            <FeatureColumn
-              icon={<FiCpu size={36} />}
-              title="Accessible Hardware"
-              text="Affordable, non-invasive EEG hardware, engineered for comfort and precision for everyday use."
-            />
-            <FeatureColumn
-              icon={<FiToggleLeft size={36} />}
-              title="No-Code Software"
-              text="An intuitive no-code platform that empowers creators of all skill levels to build sophisticated BCI applications."
-            />
-            <FeatureColumn
-              icon={<FiZap size={36} />}
-              title="Unified Platform"
-              text="A seamless ecosystem where our hardware and software work in perfect harmony, from concept to deployment."
-            />
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid sm:grid-cols-3 gap-8 order-2 md:order-1">
+              <FeatureColumn
+                icon={<FiCpu size={36} />}
+                title="Accessible Hardware"
+                text="Affordable, non-invasive EEG hardware, engineered for everyday use."
+              />
+              <FeatureColumn
+                icon={<FiToggleLeft size={36} />}
+                title="No-Code Software"
+                text="An intuitive platform enabling creators to build applications without code."
+              />
+              <FeatureColumn
+                icon={<FiZap size={36} />}
+                title="Unified Platform"
+                text="Hardware and software working in seamless harmony."
+              />
+            </div>
+            <div className="flex justify-center order-1 md:order-2">
+              <Image src="/window.svg" alt="Window" width={350} height={350} className="w-3/4 h-auto" />
+            </div>
           </div>
         </Section>
 
@@ -207,7 +223,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-12 gap-x-8 mb-24">
                 {teamMembers.map(member => <TeamMemberCard key={member.name} {...member} />)}
             </div>
-          </Section>
+        </Section>
 
       </main>
 

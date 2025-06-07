@@ -8,9 +8,6 @@
   --text-secondary: #B0B0B0;
   --accent: #00E5FF;
   --accent-dark: #00B8CC;
-  --surface-1: rgba(255, 255, 255, 0.03);
-  --surface-2: rgba(255, 255, 255, 0.07);
-  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 body {
