@@ -43,11 +43,11 @@ export default function Home() {
             <p className="text-lg text-[var(--text-secondary)] mb-4">1 in every 50 people suffer from Muscle Degenerative Disorders.</p>
             <div className="space-y-3">
               <div className="p-3 bg-white/5 rounded-lg">
-                <p className="font-semibold text-red-300">User Problems</p>
+                <p className="font-semibold text-red-400">User Problems</p>
                 <p className="text-sm text-[var(--text-secondary)]">Physical Constraints, Technological Barriers</p>
               </div>
               <div className="p-3 bg-white/5 rounded-lg">
-                <p className="font-semibold text-red-300">Developer Problems</p>
+                <p className="font-semibold text-red-400">Developer Problems</p>
                 <p className="text-sm text-[var(--text-secondary)]">Development Complexity</p>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function Home() {
               <span className="stat-label">Months</span>
             </div>
             <div className="stat-card">
-              <span className="stat-number">$19K</span>
+              <span className="stat-number">$17K</span>
               <span className="stat-label">Investment</span>
             </div>
             <div className="stat-card">
@@ -103,6 +103,57 @@ export default function Home() {
               <span className="stat-number">1</span>
               <span className="stat-label">Provisional IP</span>
             </div>
+          </div>
+        </motion.section>
+
+        <hr className="section-divider" />
+
+        {/* Funding Timeline */}
+        <motion.section 
+          className="section-card"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="section-title text-center">Funding Journey</h2>
+          <div className="funding-timeline">
+            <div className="funding-item">
+              <div className="funding-dot"></div>
+              <div className="funding-content">
+                <div className="funding-amount">$5,000</div>
+                <div className="funding-description">Competition Winnings</div>
+                <div className="funding-date">Early 2024</div>
+              </div>
+            </div>
+            <div className="funding-item">
+              <div className="funding-dot"></div>
+              <div className="funding-content">
+                <div className="funding-amount">$5,000</div>
+                <div className="funding-description">Competition Winnings</div>
+                <div className="funding-date">Mid 2024</div>
+              </div>
+            </div>
+            <div className="funding-item">
+              <div className="funding-dot"></div>
+              <div className="funding-content">
+                <div className="funding-amount">$2,000</div>
+                <div className="funding-description">Competition Winnings</div>
+                <div className="funding-date">Late 2024</div>
+              </div>
+            </div>
+            <div className="funding-item">
+              <div className="funding-dot"></div>
+              <div className="funding-content">
+                <div className="funding-amount">$5,000</div>
+                <div className="funding-description">Self-Pooled by Founders</div>
+                <div className="funding-date">Current</div>
+              </div>
+            </div>
+          </div>
+          <div className="funding-total">
+            <div className="total-amount">$17,000</div>
+            <div className="total-label">Total Funding Raised</div>
           </div>
         </motion.section>
 
@@ -210,36 +261,44 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <h2 className="section-title text-center">Team</h2>
-          <div className="team-grid">
-            <div className="team-card">
-              <Image src="/Mo.png" alt="Mohammed HK" width={100} height={100} className="team-photo" />
-              <div className="team-name">Mohammed HK</div>
-              <div className="team-role">Chief Executive Officer</div>
-              <div className="team-bio">Expert in Computer Engineering, Successful HealthTech Exit. Won 35 National and Regional Competitions.</div>
-            </div>
-            <div className="team-card">
-              <Image src="/Raymond.png" alt="Raymond Loong Ng" width={100} height={100} className="team-photo" />
-              <div className="team-name">Raymond Loong Ng</div>
-              <div className="team-role">Chief AI Officer</div>
-              <div className="team-bio">Director of Singapore Youth AI, Successful HealthTech Exit. Won 27 National and Regional Competitions.</div>
-            </div>
-            <div className="team-card">
-              <Image src="/Kaushik.png" alt="Kaushik Manian" width={100} height={100} className="team-photo" />
-              <div className="team-name">Kaushik Manian</div>
-              <div className="team-role">Chief Tech Officer</div>
-              <div className="team-bio">Expert in Hardware Engineering and IoT Systems. Ex-Apple Engineer. Won 18 National Competitions.</div>
-            </div>
-            <div className="team-card">
-              <Image src="/Nyan.png" alt="Nyan Lin Htun" width={100} height={100} className="team-photo" />
-              <div className="team-name">Nyan Lin Htun</div>
-              <div className="team-role">Chief Operations Officer</div>
-              <div className="team-bio">Expert in Software Engineering and Design. Won 18 National Competitions.</div>
-            </div>
-            <div className="team-card">
+          
+          {/* Industry Mentor - Top Section */}
+          <div className="mentor-section">
+            <div className="mentor-card">
               <Image src="/Dehan.png" alt="Dr Dehan Hong" width={100} height={100} className="team-photo" />
               <div className="team-name">Dr Dehan Hong</div>
               <div className="team-role">Industry Mentor</div>
               <div className="team-bio">Chief Medical Office SCDF, Decades of experience in medical sector.</div>
+            </div>
+          </div>
+          
+          {/* Founders - Bottom Section */}
+          <div className="founders-section">
+            <div className="team-grid">
+              <div className="team-card">
+                <Image src="/Mo.png" alt="Mohammed HK" width={100} height={100} className="team-photo" />
+                <div className="team-name">Mohammed HK</div>
+                <div className="team-role">Chief Executive Officer</div>
+                <div className="team-bio">Expert in Computer Engineering, Successful HealthTech Exit. Won 35 National and Regional Competitions.</div>
+              </div>
+              <div className="team-card">
+                <Image src="/Raymond.png" alt="Raymond Loong Ng" width={100} height={100} className="team-photo" />
+                <div className="team-name">Raymond Loong Ng</div>
+                <div className="team-role">Chief AI Officer</div>
+                <div className="team-bio">Director of Singapore Youth AI, Successful HealthTech Exit. Won 27 National and Regional Competitions.</div>
+              </div>
+              <div className="team-card">
+                <Image src="/Kaushik.png" alt="Kaushik Manian" width={100} height={100} className="team-photo" />
+                <div className="team-name">Kaushik Manian</div>
+                <div className="team-role">Chief Tech Officer</div>
+                <div className="team-bio">Expert in Hardware Engineering and IoT Systems. Ex-Apple Engineer. Won 18 National Competitions.</div>
+              </div>
+              <div className="team-card">
+                <Image src="/Nyan.png" alt="Nyan Lin Htun" width={100} height={100} className="team-photo" />
+                <div className="team-name">Nyan Lin Htun</div>
+                <div className="team-role">Chief Operations Officer</div>
+                <div className="team-bio">Expert in Software Engineering and Design. Won 18 National Competitions.</div>
+              </div>
             </div>
           </div>
         </motion.section>

@@ -6,18 +6,22 @@
   --background-dark: #0A0A0A;
   --text-primary: #EAEAEA;
   --text-secondary: #B0B0B0;
+  --text-muted: #666666;
   --accent: #00E5FF;
   --accent-dark: #00B8CC;
-  --surface-1: rgba(255, 255, 255, 0.03);
-  --surface-2: rgba(255, 255, 255, 0.07);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --surface-1: rgba(255, 255, 255, 0.02);
+  --surface-2: rgba(255, 255, 255, 0.04);
+  --surface-3: rgba(255, 255, 255, 0.06);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(0, 229, 255, 0.2);
   --gradient-primary: linear-gradient(135deg, #00E5FF 0%, #0051D5 100%);
-  --gradient-accent: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(0, 229, 255, 0.05) 0%, rgba(0, 81, 213, 0.05) 100%);
 }
 
 body {
   background-color: var(--background-dark);
   color: var(--text-primary);
+  line-height: 1.6;
 }
 
 @layer utilities {
@@ -51,268 +55,488 @@ body {
   }
 }
 
+/* Modern Layout System */
 .section-card {
-  background: var(--surface-2);
-  border-radius: 1.25rem;
-  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
-  padding: 2.5rem 2rem;
-  margin-bottom: 2.5rem;
+  background: var(--surface-1);
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  padding: 4rem 0;
+  margin-bottom: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .section-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.25);
+  background: var(--surface-2);
 }
 
 .section-title {
-  font-size: 2.25rem;
-  font-weight: 800;
-  margin-bottom: 1.25rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
 }
 
 .section-divider {
-  border: none;
-  border-top: 1px solid var(--border-color);
-  margin: 2.5rem 0;
+  display: none;
 }
 
 .max-content {
-  max-width: 1100px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   box-sizing: border-box;
 }
 
-/* Problem/Solution Split Layout */
+/* Problem/Solution Split - Modern Grid */
 .split-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+  gap: 4rem;
+  margin-bottom: 0;
 }
 
-.problem-card {
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
-  border: 1px solid rgba(255, 107, 107, 0.2);
+.problem-card, .solution-card {
+  background: transparent;
+  border: none;
+  padding: 3rem 2rem;
+  position: relative;
 }
 
-.solution-card {
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+.problem-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #EF4444;
 }
 
-/* Stats Layout */
+.solution-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+}
+
+.problem-card .section-title,
+.solution-card .section-title {
+  text-align: left;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.problem-card .section-title::after {
+  left: 0;
+  transform: none;
+  background: #EF4444;
+}
+
+.solution-card .section-title::after {
+  left: 0;
+  transform: none;
+}
+
+.problem-card .font-semibold {
+  color: #EF4444 !important;
+}
+
+/* Stats - Clean Grid */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 0;
+  border: 1px solid var(--border-color);
 }
 
 .stat-card {
   text-align: center;
-  padding: 1.5rem 1rem;
-  background: var(--surface-1);
-  border-radius: 1rem;
-  border: 1px solid var(--border-color);
+  padding: 3rem 2rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border-color);
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.stat-card:last-child {
+  border-right: none;
 }
 
 .stat-card:hover {
-  transform: scale(1.05);
   background: var(--surface-2);
+  transform: none;
 }
 
 .stat-number {
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--accent);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
   display: block;
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
   font-size: 0.875rem;
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* Partner Logos Enhanced */
+/* Partners - Minimal Grid */
 .partner-logos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 0;
+  border: 1px solid var(--border-color);
 }
 
 .partner-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 140px;
-  padding: 1.5rem;
-  background: var(--surface-1);
-  border-radius: 1rem;
-  border: 1px solid var(--border-color);
+  justify-content: center;
+  padding: 3rem 2rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border-color);
   transition: all 0.3s ease;
+  min-height: 180px;
+}
+
+.partner-logo:last-child {
+  border-right: none;
 }
 
 .partner-logo:hover {
-  transform: translateY(-4px);
   background: var(--surface-2);
-  box-shadow: 0 8px 24px rgba(0, 229, 255, 0.15);
+  transform: none;
 }
 
-/* Market Opportunity Large Numbers */
+.partner-logo span {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Market - Professional Cards */
 .market-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 0;
+  border: 1px solid var(--border-color);
 }
 
 .market-card {
   text-align: center;
-  padding: 2rem 1rem;
-  background: var(--surface-1);
-  border-radius: 1rem;
-  border: 1px solid var(--border-color);
+  padding: 3rem 2rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border-color);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.market-card:last-child {
+  border-right: none;
 }
 
 .market-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gradient-primary);
+  display: none;
 }
 
 .market-amount {
   font-size: 2.5rem;
-  font-weight: 900;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .market-label {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .market-description {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }
 
-/* Strategy Timeline */
+/* Strategy Timeline - Minimal */
 .strategy-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 0;
+  border: 1px solid var(--border-color);
 }
 
 .timeline-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding: 1.5rem;
-  background: var(--surface-1);
-  border-radius: 1rem;
-  border: 1px solid var(--border-color);
+  justify-content: center;
+  gap: 0;
+  padding: 3rem 2rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border-color);
   position: relative;
+  text-align: center;
+}
+
+.timeline-item:last-child {
+  border-right: none;
 }
 
 .timeline-phase {
-  min-width: 120px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--accent);
+  min-width: auto;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
 }
 
 .timeline-content {
-  flex: 1;
+  flex: none;
 }
 
 .timeline-title {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .timeline-description {
   color: var(--text-secondary);
+  font-size: 0.875rem;
 }
 
-/* Enhanced Team Grid */
+/* Funding Timeline - Sophisticated */
+.funding-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0;
+  position: relative;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--border-color);
+}
+
+.funding-timeline::before {
+  display: none;
+}
+
+.funding-item {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.funding-item:last-child {
+  border-bottom: none;
+}
+
+.funding-item:hover {
+  background: var(--surface-2);
+}
+
+.funding-item:hover .funding-content {
+  transform: none;
+}
+
+.funding-dot {
+  display: none;
+}
+
+.funding-content {
+  flex: 1;
+  background: transparent;
+  border-radius: 0;
+  padding: 2.5rem 3rem;
+  border: none;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.funding-content::before,
+.funding-content::after {
+  display: none;
+}
+
+.funding-amount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.funding-description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.funding-date {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.funding-total {
+  text-align: center;
+  margin-top: 0;
+  padding: 3rem 2rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border-color);
+  border-top: none;
+}
+
+.total-amount {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.total-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Team - Professional Grid */
+.mentor-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mentor-card {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 3rem 2rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.mentor-card:hover {
+  background: var(--surface-2);
+}
+
+.founders-section {
+  margin-top: 0;
+}
+
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 0;
+  border: 1px solid var(--border-color);
 }
 
 .team-card {
-  background: var(--surface-1);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
-  border: 1px solid var(--border-color);
+  background: transparent;
+  border: none;
+  padding: 3rem 2rem;
+  border-right: 1px solid var(--border-color);
   transition: all 0.3s ease;
   text-align: center;
 }
 
+.team-card:last-child {
+  border-right: none;
+}
+
 .team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 229, 255, 0.15);
+  transform: none;
   background: var(--surface-2);
 }
 
 .team-photo {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto 1rem auto;
-  border: 3px solid var(--border-color);
+  margin: 0 auto 1.5rem auto;
+  border: 2px solid var(--border-color);
   transition: all 0.3s ease;
 }
 
 .team-card:hover .team-photo {
   border-color: var(--accent);
-  transform: scale(1.05);
+  transform: none;
 }
 
 .team-name {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.125rem;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .team-role {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-muted);
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .team-bio {
@@ -321,17 +545,40 @@ body {
   line-height: 1.5;
 }
 
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1024px) {
   .max-content {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .section-card {
+    padding: 3rem 0;
   }
   
   .split-section {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 0;
+  }
+  
+  .problem-card, .solution-card {
+    padding: 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .solution-card {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .max-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
   }
   
   .stats-grid {
@@ -342,46 +589,65 @@ body {
     grid-template-columns: 1fr;
   }
   
+  .strategy-timeline {
+    grid-template-columns: 1fr;
+  }
+  
   .partner-logos {
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
   }
   
-  .timeline-item {
-    flex-direction: column;
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .mentor-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .mentor-card {
+    padding: 2rem;
+  }
+  
+  .funding-content {
+    grid-template-columns: 1fr;
     text-align: center;
+    gap: 1rem;
   }
   
-  .section-card {
-    padding: 1.5rem 1rem;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
-  .section-title {
-    font-size: 1.75rem;
+  .funding-amount, .funding-description, .funding-date {
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
   .max-content {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
   
   .section-card {
-    padding: 1.25rem 1rem;
-    border-radius: 1rem;
-    margin-left: 0;
-    margin-right: 0;
+    padding: 2rem 0;
   }
   
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
   
-  .split-section {
-    gap: 1rem;
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-card, .market-card, .timeline-item, .partner-logo, .team-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mentor-card {
+    padding: 1.5rem;
   }
 }
