@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import AnimatedBackground from './components/AnimatedBackground';
+import VideoCarousel from './components/VideoCarousel';
 
 export default function Home() {
   return (
@@ -301,6 +302,20 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </motion.section>
+
+        <hr className="section-divider" />
+
+        {/* Video Showcase - Carousel */}
+        <motion.section 
+          className="section-card"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="section-title text-center">See Neural Drive in Action</h2>
+          <VideoCarousel />
         </motion.section>
       </main>
 
