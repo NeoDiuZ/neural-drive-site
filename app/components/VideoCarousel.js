@@ -11,12 +11,12 @@ const VideoCarousel = () => {
     {
       id: "7ABPZhTTVLI", // Replace with your video ID
       title: "Neural Drive Demo - Wheelchair",
-      description: "Watch our breakthrough technology in action as users control devices with their thoughts."
+      description: "Watch our technology in action as one of our founders controls a wheelchair with their thoughts."
     },
     {
       id: "wKX6WnQoaUU", // Replace with your video ID  
       title: "Neural Drive Demo - Robot",
-      description: "Real testimonials from users who've regained independence through Neural Drive."
+      description: "Our CTO controlling a robot with his thoughts."
     }
   ];
 
