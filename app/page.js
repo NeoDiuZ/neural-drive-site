@@ -124,15 +124,7 @@ export default function Home() {
               <div className="funding-content">
                 <div className="funding-amount">$5,000</div>
                 <div className="funding-description">Competition Winnings</div>
-                <div className="funding-date">Early 2024</div>
-              </div>
-            </div>
-            <div className="funding-item">
-              <div className="funding-dot"></div>
-              <div className="funding-content">
-                <div className="funding-amount">$5,000</div>
-                <div className="funding-description">Competition Winnings</div>
-                <div className="funding-date">Mid 2024</div>
+                <div className="funding-date">Mid 2025</div>
               </div>
             </div>
             <div className="funding-item">
@@ -140,7 +132,7 @@ export default function Home() {
               <div className="funding-content">
                 <div className="funding-amount">$2,000</div>
                 <div className="funding-description">Competition Winnings</div>
-                <div className="funding-date">Late 2024</div>
+                <div className="funding-date">Early 2025</div>
               </div>
             </div>
             <div className="funding-item">
@@ -148,7 +140,15 @@ export default function Home() {
               <div className="funding-content">
                 <div className="funding-amount">$5,000</div>
                 <div className="funding-description">Self-Pooled by Founders</div>
-                <div className="funding-date">Current</div>
+                <div className="funding-date">Early 2025</div>
+              </div>
+            </div>
+            <div className="funding-item">
+              <div className="funding-dot"></div>
+              <div className="funding-content">
+                <div className="funding-amount">$5,000</div>
+                <div className="funding-description">Competition Winnings</div>
+                <div className="funding-date">Late 2024</div>
               </div>
             </div>
           </div>
