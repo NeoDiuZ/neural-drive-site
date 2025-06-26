@@ -9,8 +9,13 @@ const VideoCarousel = () => {
   // Replace these with your actual YouTube video IDs
   const videos = [
     {
-      id: "7ABPZhTTVLI", // Replace with your video ID
+      id: "KR6yoCT8s_4", // Replace with your video ID
       title: "Neural Drive Demo - Wheelchair",
+      description: "Wheelchair test in our school library."
+    },
+    {
+      id: "7ABPZhTTVLI", // Replace with your video ID
+      title: "Neural Drive Demo - Wheelchair 2",
       description: "Watch our technology in action as one of our founders controls a wheelchair with their thoughts."
     },
     {
