@@ -113,6 +113,50 @@ const VideoCarousel = () => {
         </button>
       </div>
 
+      {/* Try Interface Section */}
+      <div className="try-interface-section">
+        <div className="try-interface-content">
+          <h3 className="try-interface-title">Ready to Experience Neural Drive?</h3>
+          <a 
+            href="neural-drive-interface.vercel.app" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="try-interface-button"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '12px 24px',
+              backgroundColor: '#ffffff',
+              color: '#000000',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              fontWeight: '500',
+              fontSize: '16px',
+              transition: 'all 0.2s ease',
+              backdropFilter: 'blur(10px)',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#f8f9fa';
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#ffffff';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            }}
+          >
+            <span>Try Neural Drive Interface</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
       {/* Thumbnail Strip (Optional - uncomment if you want thumbnails) */}
       {/* 
       <div className="video-thumbnails">
