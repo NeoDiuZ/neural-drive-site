@@ -117,10 +117,10 @@ const VideoCarousel = () => {
       <div className="try-interface-section">
         <div className="try-interface-content">
           <h3 className="try-interface-title">Ready to Experience Neural Drive?</h3>
-          <a 
-            href="neural-drive-interface.vercel.app" 
-            target="_blank" 
-            rel="noopener noreferrer"
+                      <a 
+              href="https://neural-drive-interface.vercel.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
             className="try-interface-button"
             style={{
               display: 'inline-flex',
