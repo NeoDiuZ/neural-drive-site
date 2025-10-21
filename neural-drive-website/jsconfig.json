@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@neural/*": ["./src/components/neural/*"],
+      "@pages/*": ["./src/pages/*"]
+    }
+  }
+}
