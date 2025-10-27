@@ -7,15 +7,15 @@ import { ShieldCheck, FileBadge, Award, CheckCircle } from "lucide-react";
 
 const partners = ["A*STAR", "SGH", "TTSH", "SINGHEALTH", "LIONS BEFRIENDERS"];
 const certificates = [
-  { name: "ISO 13485", icon: FileBadge },
-  { name: "CE Marked", icon: Award },
-  { name: "HSA Approved", icon: CheckCircle },
+  { name: "ISO 13485 (Q3 2026)", icon: FileBadge },
+  { name: "CE Marked (Q2 2026)", icon: Award },
+  { name: "HSA Approved (Q1 2026)", icon: CheckCircle },
 ];
 
 const Marquee = ({ items, direction = "left", speed = 25 }) => {
   const marqueeVariants = {
     animate: {
-      x: direction === "left" ? ["0%", "-100%"] : ["-100%", "0%"],
+      x: direction === "left" ? ["0%", "-33.333%"] : ["-33.333%", "0%"],
       transition: {
         x: {
           repeat: Infinity,
@@ -27,8 +27,8 @@ const Marquee = ({ items, direction = "left", speed = 25 }) => {
     },
   };
 
-  // Duplicate items for a seamless loop
-  const extendedItems = [...items, ...items];
+  // Triplicate items for truly seamless infinite loop
+  const extendedItems = [...items, ...items, ...items];
 
   return (
     <div className="relative w-full overflow-hidden whitespace-nowrap">
