@@ -110,7 +110,7 @@ export default function ContactCTA() {
               >
                 <button className="text-[#00B4DB] hover:text-[#00F5A0] transition-colors flex items-center gap-2 group">
                   <Mail className="w-5 h-5" />
-                  <span>hello@neuraldrive.sg</span>
+                  <span>mo@neuraldrive.sg</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>

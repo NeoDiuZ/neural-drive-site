@@ -104,7 +104,7 @@ export default function Contact() {
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-[#8BA3C7]">
             <a href="mailto:hello@neuraldrive.sg" className="hover:text-[#00B4DB] transition-colors">
-              hello@neuraldrive.sg
+              mo@neuraldrive.sg
             </a>
             <span className="hidden sm:block">·</span>
             <span>Singapore</span>

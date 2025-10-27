@@ -17,24 +17,24 @@ export default function Vision() {
 
   const team = [
     {
-      name: "Dr. Wei Lin",
-      role: "Co-Founder",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
+      name: "Kaushik Thirumaran Manian",
+      role: "Co-Founder & CTO",
+      image: "/photos/Kaushik.png"
     },
     {
-      name: "Sarah Tan",
-      role: "Co-Founder",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=600&fit=crop"
+      name: "Raymond Loong Ng",
+      role: "Co-Founder & CAIO",
+      image: "/photos/Raymond.png"
     },
     {
-      name: "James Kumar",
-      role: "Design",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=600&fit=crop"
+      name: "Mohammed Khambhati",
+      role: "Co-Founder & CEO",
+      image: "/photos/Mo.png"
     },
     {
-      name: "Maya Wong",
-      role: "Medical",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&h=600&fit=crop"
+      name: "Nyan Lin Htun",
+      role: "Co-Founder & COO",
+      image: "/photos/Nyan.png"
     }
   ];
 
@@ -73,7 +73,7 @@ export default function Vision() {
           </h2>
           
           <p className="text-lg sm:text-xl md:text-2xl text-[#8BA3C7] font-light leading-relaxed max-w-3xl mx-auto">
-            By engineers, dreamers, and caregivers who believe that 
+            By engineers, dreamers and enthusiasts who believe that 
             communication is a fundamental human right.
           </p>
         </motion.div>
@@ -92,7 +92,7 @@ export default function Vision() {
                 <motion.img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0C1022] via-transparent to-transparent opacity-60" />
               </div>

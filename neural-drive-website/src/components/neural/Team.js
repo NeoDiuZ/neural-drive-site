@@ -5,28 +5,28 @@ import { Linkedin, Twitter } from "lucide-react";
 
 const team = [
   {
-    name: "Dr. Wei Lin",
-    role: "Co-Founder & CEO",
+    name: "Kaushik Thirumaran Manian",
+    role: "Co-Founder & CTO",
     bio: "Neuroscientist with 15 years in BCI research",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+    image: "/photos/Kaushik.png"
   },
   {
     name: "Sarah Tan",
     role: "Co-Founder & CTO",
     bio: "AI Engineer, ex-Google Brain",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+    image: "/photos/Raymond.png"
   },
   {
     name: "James Kumar",
     role: "Head of Design",
     bio: "Product designer focused on accessibility",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+    image: "/photos/Mo.png"
   },
   {
     name: "Maya Wong",
     role: "Chief Medical Officer",
     bio: "Neurologist specialized in assistive tech",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
+    image: "/photos/Nyan.png"
   }
 ];
 

@@ -5,9 +5,8 @@ import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ShieldCheck, FileBadge, Award, CheckCircle } from "lucide-react";
 
-const partners = ["A*STAR", "NUS", "SINGHEALTH", "TECH.SG", "SGNOVATE", "ENTERPRISE SG"];
+const partners = ["A*STAR", "SGH", "TTSH", "SINGHEALTH", "LIONS BEFRIENDERS"];
 const certificates = [
-  { name: "FDA Cleared", icon: ShieldCheck },
   { name: "ISO 13485", icon: FileBadge },
   { name: "CE Marked", icon: Award },
   { name: "HSA Approved", icon: CheckCircle },
