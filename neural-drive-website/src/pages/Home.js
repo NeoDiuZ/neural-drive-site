@@ -9,6 +9,7 @@ import Innovation from "@neural/Innovation";
 import Science from "@neural/Science";
 import Humanity from "@neural/Humanity";
 import Vision from "@neural/Vision";
+import YouTube from "@neural/YouTube";
 import Contact from "@neural/Contact";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
       <Science />
       <Humanity />
       <Vision />
+      <YouTube />
       <Contact />
     </div>
   );

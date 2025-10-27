@@ -65,7 +65,7 @@ export default function Problem() {
           {[
             { number: "5M", label: "People with speech disorders" },
             { number: "18M", label: "Live with paralysis" },
-            { number: "$0", label: "Can afford existing BCIs" }
+            { number: "$289B", label: "APAC Market Size" }
           ].map((stat, i) => (
             <motion.div
               key={i}
